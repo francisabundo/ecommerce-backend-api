@@ -1,0 +1,491 @@
+{
+	"info": {
+		"_postman_id": "d3ace61a-437a-4505-8e6c-5976ac84148a",
+		"name": "CSP2 Render",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26959408"
+	},
+	"item": [
+		{
+			"name": "User Registration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"Dummy\",\r\n    \"lastName\": \"Customer\",\r\n    \"email\" : \"customer@mail.com\",\r\n    \"password\": \" customer123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://csp2-vgwx.onrender.com/users/register",
+					"protocol": "https",
+					"host": [
+						"csp2-vgwx",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Authentication",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"customer@mail.com\",\r\n    \"password\": \"test\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://csp2-vgwx.onrender.com/users/login",
+					"protocol": "https",
+					"host": [
+						"csp2-vgwx",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Product (Admin only)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODAyMTUxNzgxNDRhNmQxMDQyODAyYSIsImVtYWlsIjoicmFuZHlAbWFpbC5jb20iLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2ODYxODc3NTZ9.16KX3VvP_hhDPMf31WO8v22EyY143Bqq61Xh83Ic4BY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"The Da Vinci Code\",\r\n    \"description\": \"by Dan Brown\",\r\n    \"price\": 720\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://csp2-vgwx.onrender.com/products",
+					"protocol": "https",
+					"host": [
+						"csp2-vgwx",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve all products (Admin only)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODAyMTUxNzgxNDRhNmQxMDQyODAyYSIsImVtYWlsIjoicmFuZHlAbWFpbC5jb20iLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2ODYxODc3NTZ9.16KX3VvP_hhDPMf31WO8v22EyY143Bqq61Xh83Ic4BY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://csp2-vgwx.onrender.com/products/all",
+					"protocol": "https",
+					"host": [
+						"csp2-vgwx",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"products",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve all active products",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://csp2-vgwx.onrender.com/products",
+					"protocol": "https",
+					"host": [
+						"csp2-vgwx",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve a single product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://csp2-vgwx.onrender.com/products/6480225478144a6d10428035",
+					"protocol": "https",
+					"host": [
+						"csp2-vgwx",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"products",
+						"6480225478144a6d10428035"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update product information (Admin only)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODAyMTUxNzgxNDRhNmQxMDQyODAyYSIsImVtYWlsIjoicmFuZHlAbWFpbC5jb20iLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2ODYxODc3NTZ9.16KX3VvP_hhDPMf31WO8v22EyY143Bqq61Xh83Ic4BY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"The 4-Hour Workweek\",\r\n    \"description\": \"by Tim Ferriss\",\r\n    \"price\": 1200\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://csp2-vgwx.onrender.com/products/647eefc81f8cec0d8435f175",
+					"protocol": "https",
+					"host": [
+						"csp2-vgwx",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"products",
+						"647eefc81f8cec0d8435f175"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Archive a Product (Admin only)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODAyMTUxNzgxNDRhNmQxMDQyODAyYSIsImVtYWlsIjoicmFuZHlAbWFpbC5jb20iLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2ODYxODc3NTZ9.16KX3VvP_hhDPMf31WO8v22EyY143Bqq61Xh83Ic4BY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"isActive\": \"false\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://csp2-vgwx.onrender.com/products/6481226c3f0509133eda7329/archive",
+					"protocol": "https",
+					"host": [
+						"csp2-vgwx",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"products",
+						"6481226c3f0509133eda7329",
+						"archive"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Activate a Product (Admin only)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODAyMTUxNzgxNDRhNmQxMDQyODAyYSIsImVtYWlsIjoicmFuZHlAbWFpbC5jb20iLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2ODYxODc3NTZ9.16KX3VvP_hhDPMf31WO8v22EyY143Bqq61Xh83Ic4BY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"isActive\": \"true\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://csp2-vgwx.onrender.com/products/6481226c3f0509133eda7329/activate",
+					"protocol": "https",
+					"host": [
+						"csp2-vgwx",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"products",
+						"6481226c3f0509133eda7329",
+						"activate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Non-admin User checkout (Create Order)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODAyMTUxNzgxNDRhNmQxMDQyODAyYSIsImVtYWlsIjoicmFuZHlAbWFpbC5jb20iLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2ODYxODc3NTZ9.16KX3VvP_hhDPMf31WO8v22EyY143Bqq61Xh83Ic4BY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"productId\" : \"648124393f0509133eda7335\",\r\n    \"quantity\" : 2\r\n}\r\n\r\n\r\n\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://csp2-vgwx.onrender.com/orders/checkout",
+					"protocol": "https",
+					"host": [
+						"csp2-vgwx",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"orders",
+						"checkout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve User details",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODAyMTUxNzgxNDRhNmQxMDQyODAyYSIsImVtYWlsIjoicmFuZHlAbWFpbC5jb20iLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2ODYxODc3NTZ9.16KX3VvP_hhDPMf31WO8v22EyY143Bqq61Xh83Ic4BY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://csp2-vgwx.onrender.com/users/details",
+					"protocol": "https",
+					"host": [
+						"csp2-vgwx",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"users",
+						"details"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SG - Set user as admin (Admin only)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODAyMTUxNzgxNDRhNmQxMDQyODAyYSIsImVtYWlsIjoicmFuZHlAbWFpbC5jb20iLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2ODYyMTQ4Njd9.GuCMlbNze8ADkntKGYXO5YcN2f0t8xcoqAkrH5uWRgw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"ola@mail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://csp2-vgwx.onrender.com/users/setadmin",
+					"protocol": "https",
+					"host": [
+						"csp2-vgwx",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"users",
+						"setadmin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SG - My Orders (auth user)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODAyMTUxNzgxNDRhNmQxMDQyODAyYSIsImVtYWlsIjoicmFuZHlAbWFpbC5jb20iLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2ODYxODc3NTZ9.16KX3VvP_hhDPMf31WO8v22EyY143Bqq61Xh83Ic4BY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://csp2-vgwx.onrender.com/orders/completed",
+					"protocol": "https",
+					"host": [
+						"csp2-vgwx",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"orders",
+						"completed"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SG - Retrieve all orders (Admin only)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODAyMTUxNzgxNDRhNmQxMDQyODAyYSIsImVtYWlsIjoicmFuZHlAbWFpbC5jb20iLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2ODYxODc3NTZ9.16KX3VvP_hhDPMf31WO8v22EyY143Bqq61Xh83Ic4BY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://csp2-vgwx.onrender.com/orders/all",
+					"protocol": "https",
+					"host": [
+						"csp2-vgwx",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"orders",
+						"all"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

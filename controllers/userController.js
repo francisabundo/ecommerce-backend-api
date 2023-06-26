@@ -128,9 +128,5 @@ module.exports.getAllUsers = data => {
         return false;
       });
 
-
-      
-
-
 };
 

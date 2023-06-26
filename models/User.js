@@ -25,8 +25,6 @@ const userSchema = new mongoose.Schema({
 		type : String, 
 		required : [false, "Mobile No is required"]
 	},
-
-
 })
 
 module.exports = mongoose.model("User", userSchema);

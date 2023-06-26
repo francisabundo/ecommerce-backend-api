@@ -38,9 +38,6 @@ module.exports.addProduct = reqBody => {
       });
   };
   
-
-
-
 //Retrieve all products
 module.exports.getAllProducts = () => {
 
@@ -101,7 +98,6 @@ module.exports.updateProduct = (reqParams, reqBody) => {
       }
     });
 };
-
 
 //Archive a product
 module.exports.archiveProduct = (reqParams, reqBody) => {

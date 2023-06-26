@@ -67,8 +67,6 @@ module.exports.createOrder = async (data) => {
 	}
   };
   
-
-
 //Stretch Goals
 
 // Retrieve authenticated user’s orders
